@@ -3,9 +3,12 @@
 !.config/
 .config/*
 
-!.config/hypr
+!.config/hypr/
 !.config/tofi/
 !.config/waybar/
+
+!.config/tmux/
+.config/tmux/plugins/
 
 !/.gitignore
 
