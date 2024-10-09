@@ -1,0 +1,11 @@
+/*
+
+!.config/
+.config/*
+
+!.config/hypr
+!.config/tofi/
+!.config/waybar/
+
+!/.gitignore
+
