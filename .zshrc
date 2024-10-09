@@ -70,7 +70,7 @@ ZSH_THEME=""
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime)
+plugins=(git sublime ssh-agent poetry)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,3 +105,6 @@ source $ZSH/oh-my-zsh.sh
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
+
+# Created by `pipx` on 2024-08-13 23:45:19
+export PATH="$PATH:/home/caio/.local/bin"

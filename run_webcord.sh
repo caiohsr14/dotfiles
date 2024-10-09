@@ -27,4 +27,4 @@ echo "Waybar is running. Starting other application." >> $LOG_FILE
 sleep 1
 
 # Start the other application on a specific workspace
-hyprctl dispatch exec \[workspace 2\] bash -c "webcord --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations" >> $LOG_FILE 2>&1
+hyprctl dispatch exec \[workspace 1\] bash -c "webcord --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations" >> $LOG_FILE 2>&1
