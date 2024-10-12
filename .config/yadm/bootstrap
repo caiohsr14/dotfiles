@@ -16,12 +16,16 @@ setup_omz() {
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
 }
 
 setup_tmux() {
   install_package tmux
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
+setup_nvim() {
+  install_package nvim
+  git clone git@github.com:caiohsr14/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 }
 
 install_brew() {
@@ -33,12 +37,12 @@ install_brew() {
 
 if [ "$system_type" = "Darwin" ]; then
 	install_brew
-	brew tap homebrew/cask-fonts
-	brew install font-meslo-lg-nerd-font
+	brew install --cask font-meslo-lg-nerd-font
 fi
 
 setup_omz
 setup_tmux
+setup_nvim
 
 install_package fzf
 install_package fd
