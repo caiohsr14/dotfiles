@@ -1,11 +1,16 @@
 /*
 
+!.zshrc
+!.p10k.zsh
+
 !.config/
 .config/*
 
 !.config/hypr/
+!.config/kitty/
 !.config/tofi/
 !.config/waybar/
+!.config/yadm/
 
 !.config/tmux/
 .config/tmux/plugins/
