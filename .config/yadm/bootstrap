@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+system_type=$(uname -s)
+
+install_package() {
+  if [ "$system_type" = "Darwin" ]; then
+    brew install $1
+  else
+    yay -S --noconfirm --needed $1
+  fi
+}
+
+setup_omz() {
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+}
+
+setup_tmux() {
+  install_package tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
+install_brew() {
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing Homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  fi
+}
+
+if [ "$system_type" = "Darwin" ]; then
+	install_brew
+	brew tap homebrew/cask-fonts
+	brew install font-meslo-lg-nerd-font
+fi
+
+setup_omz
+setup_tmux
+
+install_package fzf
+install_package fd
+install_package eza
