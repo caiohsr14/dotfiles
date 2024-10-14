@@ -47,3 +47,4 @@ setup_nvim
 install_package fzf
 install_package fd
 install_package eza
+install_package ripgrep

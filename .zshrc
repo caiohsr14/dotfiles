@@ -44,3 +44,7 @@ _fzf_compgen_dir() {
 }
 
 alias ls="eza --icons=always"
+
+if [[ $(uname) == "Darwin" ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
