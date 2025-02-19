@@ -9,10 +9,11 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="nvim"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git sublime ssh-agent poetry zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git pyautoenv ssh-agent poetry zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
