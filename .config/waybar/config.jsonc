@@ -7,10 +7,9 @@
     "gtk-layer-shell": true,
     "height": 0,
     "modules-left": [
-        "clock",
         "hyprland/workspaces"
     ],
-    "modules-center": ["hyprland/window"],
+    "modules-center": ["clock"],
     "modules-right": [
         "tray",
         "memory",
@@ -49,7 +48,8 @@
     },
 
     "clock": {
-        "format": "{:%A    %d/%m/%Y    %H:%M:%S}",
+        "format": "{:L%a %d %b %H:%M}",
+        "locale": "en_GB.UTF-8",
         "interval": 1,
         "rotate": 0,
         "tooltip-format": "<tt>{calendar}</tt>",
