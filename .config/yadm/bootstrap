@@ -12,7 +12,7 @@ install_package() {
 
 setup_zsh() {
   install_package zsh
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -93,3 +93,7 @@ install_package ripgrep
 install_package keepassxc
 install_package syncthing
 install_package zoxide
+
+git config --global user.name "Caio Rodrigues"
+git config --global user.email "caiohsr__@hotmail.com"
+
