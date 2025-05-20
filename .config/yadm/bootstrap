@@ -26,7 +26,7 @@ setup_tmux() {
 
 setup_nvim() {
   install_package nvim
-  git clone git@github.com:caiohsr14/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+  git clone https://github.com/caiohsr14/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 }
 
 install_brew() {
@@ -43,8 +43,10 @@ else
   install_package kitty
   install_package btop
   install_package cmake
+  install_package pamixer
   install_package thunar
   install_package tofi
+  install_package ttf-jetbrains-mono-nerd
   install_package ttf-opensans
   install_package yazi
 
@@ -86,6 +88,7 @@ install_package bat
 install_package fzf
 install_package fd
 install_package eza
+install_package lazygit
 install_package ripgrep
 install_package keepassxc
 install_package syncthing
