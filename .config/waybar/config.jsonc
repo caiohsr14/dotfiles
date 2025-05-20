@@ -12,11 +12,8 @@
     "modules-center": ["clock"],
     "modules-right": [
         "tray",
-        "memory",
-        "cpu",
         "network",
         "battery",
-        "backlight",
         "pulseaudio",
         "pulseaudio#microphone"
     ],
