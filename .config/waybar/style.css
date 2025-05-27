@@ -104,6 +104,7 @@ window#waybar {
 
 #pulseaudio {
     color: #a6adc8;
+    border-radius: 10px 0px 0px 10px;
     border-left: 0px;
     border-right: 0px;
 }
