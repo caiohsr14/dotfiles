@@ -57,6 +57,7 @@ else
   install_package hyprpaper
   install_package hyprpicker
   install_package mako
+  install_package nwg-look
   install_package waybar
   install_package wl-clipboard
   install_package xdg-desktop-portal-gtk
@@ -67,7 +68,7 @@ else
   install_package mpv
   install_package obs-studio
   install_package pavucontrol
-  install_package rmpc-git
+  install_package rmpc
   install_package spotify
   install_package telegram-desktop
   install_package thunderbird
@@ -78,6 +79,13 @@ else
   install_package sqlitebrowser
   install_package docker
   install_package docker-compose
+
+  mkdir -p "$HOME/.icons/catppuccin" && \
+  curl -Ls https://github.com/catppuccin/cursors/releases/download/v2.0.0/catppuccin-mocha-pink-cursors.zip | \
+  bsdtar -xf - --strip-components=1 -C "$HOME/.icons/catppuccin"
+
+  systemctl enable --user syncthing.service
+  systemctl start --user syncthing.service
 fi
 
 setup_zsh
