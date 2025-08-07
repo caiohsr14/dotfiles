@@ -104,4 +104,5 @@ install_package zoxide
 
 git config --global user.name "Caio Rodrigues"
 git config --global user.email "caiohsr__@hotmail.com"
-
+git config --global pull.rebase true
+git config --global rebase.autoStash true
