@@ -14,19 +14,29 @@ setup_zsh() {
   install_package zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended
 
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  fi
+  if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  fi
+  if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  fi
 }
 
 setup_tmux() {
   install_package tmux
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
 }
 
 setup_nvim() {
   install_package nvim
-  git clone https://github.com/caiohsr14/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+  if [ ! -d "${XDG_CONFIG_HOME:-$HOME/.config}/nvim" ]; then
+    git clone https://github.com/caiohsr14/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+  fi
 }
 
 install_brew() {
@@ -79,13 +89,21 @@ else
   install_package sqlitebrowser
   install_package docker
   install_package docker-compose
+  install_package python-uv
+  install_package vim
 
-  mkdir -p "$HOME/.icons/catppuccin" && \
-  curl -Ls https://github.com/catppuccin/cursors/releases/download/v2.0.0/catppuccin-mocha-pink-cursors.zip | \
-  bsdtar -xf - --strip-components=1 -C "$HOME/.icons/catppuccin"
+  if [ ! -d "$HOME/.icons/catppuccin" ]; then
+    mkdir -p "$HOME/.icons/catppuccin" && \
+    curl -Ls https://github.com/catppuccin/cursors/releases/download/v2.0.0/catppuccin-mocha-pink-cursors.zip | \
+    bsdtar -xf - --strip-components=1 -C "$HOME/.icons/catppuccin"
+  fi
 
-  systemctl enable --user syncthing.service
-  systemctl start --user syncthing.service
+  if ! systemctl is-enabled --user syncthing.service >/dev/null 2>&1; then
+    systemctl enable --user syncthing.service
+  fi
+  if ! systemctl is-active --user syncthing.service >/dev/null 2>&1; then
+    systemctl start --user syncthing.service
+  fi
 fi
 
 setup_zsh
@@ -102,7 +120,9 @@ install_package keepassxc
 install_package syncthing
 install_package zoxide
 
-git config --global user.name "Caio Rodrigues"
-git config --global user.email "caiohsr__@hotmail.com"
-git config --global pull.rebase true
-git config --global rebase.autoStash true
+if [ -z "$(git config --global user.name)" ]; then
+  git config --global user.name "Caio Rodrigues"
+  git config --global user.email "caiohsr__@hotmail.com"
+  git config --global pull.rebase true
+  git config --global rebase.autoStash true
+fi
