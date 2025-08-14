@@ -7,14 +7,20 @@
 !.config/
 .config/*
 
+!.config/fastfetch/
 !.config/hypr/
 !.config/kitty/
+!.config/rmpc/
 !.config/tofi/
 !.config/waybar/
 !.config/yadm/
 
 !.config/tmux/
 .config/tmux/plugins/
+
+!punpun1.png
+!walle.png
+
 
 !/.gitignore
 
