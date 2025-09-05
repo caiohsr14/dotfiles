@@ -10,6 +10,7 @@
 !.config/fastfetch/
 !.config/hypr/
 !.config/kitty/
+!.config/pipewire/
 !.config/rmpc/
 !.config/tofi/
 !.config/waybar/

@@ -62,3 +62,5 @@ function y() {
 if [[ $(uname) == "Darwin" ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
+
+export PATH=~/.npm-global/bin:$PATH
