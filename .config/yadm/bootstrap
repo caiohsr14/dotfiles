@@ -79,12 +79,14 @@ else
   install_package xdg-desktop-portal-gtk
   install_package xdg-desktop-portal-hyprland
 
+  install_package fastfetch
   install_package mpd
   install_package mpdscribble
   install_package mpv
   install_package obs-studio
   install_package pavucontrol
   install_package rmpc
+  install_package slack-desktop
   install_package spotify
   install_package telegram-desktop
   install_package thunderbird
@@ -121,6 +123,7 @@ install_package fzf
 install_package fd
 install_package eza
 install_package lazygit
+install_package npm
 install_package ripgrep
 install_package keepassxc
 install_package zoxide
