@@ -67,7 +67,10 @@ else
   install_package hyprpaper
   install_package hyprpicker
   install_package mako
+  install_package noise-suppression-for-voice
   install_package nwg-look
+  install_package rnnoise
+  install_package syncthing
   install_package waybar
   install_package wl-clipboard
   install_package xdg-desktop-portal-gtk
@@ -117,7 +120,6 @@ install_package eza
 install_package lazygit
 install_package ripgrep
 install_package keepassxc
-install_package syncthing
 install_package zoxide
 
 if [ -z "$(git config --global user.name)" ]; then
